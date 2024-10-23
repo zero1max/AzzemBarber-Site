@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azzem Barber</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Azzem Barber</div>
+        <nav>
+          <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#our-work">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Your New Style Awaits</h1>
+        <p>Premium haircuts and grooming services for the modern man.</p>
+        <a href="#booking" class="btn">Book Now</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Haircut</h3>
+                <p>Tailored cuts to suit your personality.</p>
+            </div>
+            <div class="service-item">
+                <h3>Beard Styling</h3>
+                <p>Sharp looks with a professional touch.</p>
+            </div>
+            <div class="service-item">
+                <h3>Facial Treatment</h3>
+                <p>Relax and rejuvenate with expert care.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Work Section -->
+    <section id="our-work" class="our-work">
+        <h2>Our Work</h2>
+        <p>Explore some of our finest haircuts and grooming styles.</p>
+    
+        <div class="work-gallery">
+          <div class="work-card">
+            <img src="images/haircut1.jpg" alt="Classic Haircut">
+            <div class="card-content">
+              <h3>Classic Haircut</h3>
+              <p>A timeless style that never goes out of fashion.</p>
+            </div>
+          </div>
+      
+          <div class="work-card">
+            <img src="images/haircut2.jpg" alt="Modern Fade">
+            <div class="card-content">
+              <h3>Modern Fade</h3>
+              <p>Fresh and trendy, perfect for the stylish man.</p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <img src="images/haircut3.jpg" alt="Beard Trim">
+            <div class="card-content">
+              <h3>Beard Trim</h3>
+              <p>Defined edges and a polished look.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to book an appointment?</p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Azzem Barber. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.navbar');
+
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
