@@ -1,0 +1,446 @@
+{% load static %}
+
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Gentlemen's Barber Shop</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&display=swap" rel="stylesheet">
+
+        <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static '/css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static '/css/templatemo-barber-shop.css' %}" rel="stylesheet">
+<!--
+
+TemplateMo 585 Barber Shop
+
+https://templatemo.com/tm-585-barber-shop
+
+-->
+    </head>
+    
+    <body>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse p-0">
+
+                    <div class="position-sticky sidebar-sticky d-flex flex-column justify-content-center align-items-center">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="{% static '/images/templatemo-barber-logo.png' %}" class="logo-image img-fluid" align="">
+                        </a>
+
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Bosh sahifa</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Biz haqimizda</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">Servislar</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">Narxlar ro'yxati</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">Kontaktlar</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                
+                <div class="col-md-8 ms-sm-auto col-lg-9 p-0">
+                    <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col-lg-8 col-12">
+                                        <h1 class="text-white mb-lg-3 mb-4"><strong>Barber <em>Shop</em></strong></h1>
+                                        <p class="text-black">Eng professional soch olish faqat bizda</p>
+                                        <br>
+                                        <a class="btn custom-btn custom-border-btn custom-btn-bg-white smoothscroll me-2 mb-2" href="#section_2">Biz haqimizda</a>
+
+                                        <a class="btn custom-btn smoothscroll mb-2" href="#section_3">Biz nima qilamiz</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="custom-block d-lg-flex flex-column justify-content-center align-items-center">
+                                <img src="{% static '/images/vintage-chair-barbershop.jpg' %}" class="custom-block-image img-fluid" alt="">
+
+                                <h4><strong class="text-white">Tezroq! Hoziroq joy band qiling!</strong></h4>
+
+                                <a href="#booking-section" class="smoothscroll btn custom-btn custom-btn-italic mt-3">Joy band qilish</a>
+                            </div>
+                    </section>
+
+
+                    <section class="about-section section-padding" id="section_2">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-12 col-12 mx-auto">
+                                    <h2 class="mb-4">Eng zo'r sartaroshlar</h2>
+
+                                    <div class="border-bottom pb-3 mb-5">
+                                        <p>Azamat va Safar – bu nafaqat sartaroshlar, balki san'atkorlar! Ularning qaychini ishlatishidagi mahorati va uslublar yaratishdagi ijodiy yondashuvi sizni hayratda qoldiradi. Har bir mijoz uchun individual yondashuv, har bir soch turmagida o'ziga xoslik va mukammallik! Ular bilan tashqi ko'rinishingiz nafaqat o'zgacha, balki o'zingizni yanada ishonchli his qilishingizga yordam beradi.</p>
+                                    </div>
+                                </div>
+
+                                    <h6 class="mb-5">Sartaroshlarimiz bilan tanishing!</h6>
+                                        {% for barber in barbers %}
+                                        <div class="col-lg-5 col-12 custom-block-bg-overlay-wrap me-lg-5 mb-5 mb-lg-0">
+                                            <img src="{{ barber.photo.url }}" class="custom-block-bg-overlay-image img-fluid" alt="">
+
+                                            <div class="team-info d-flex align-items-center flex-wrap">
+                                                <p class="mb-0">{{ barber.name }}</p>
+
+                                                <ul class="social-icon ms-auto">
+                                                    <li class="social-icon-item">
+                                                        <a href="#" class="social-icon-link bi-facebook">
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="social-icon-item">
+                                                        <a href="#" class="social-icon-link bi-instagram">
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="social-icon-item">
+                                                        <a href="#" class="social-icon-link bi-whatsapp">
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="featured-section section-padding">
+                        <div class="section-overlay"></div>
+
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-10 col-12 mx-auto">
+                                    <h2 class="mb-3">40% chegirma oling</h2>
+
+                                    <p>1 oy har bir soch oldirish uchun 40% chegirma</p>
+
+                                    <strong>Promokod: BobishBilanNajim</strong>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section class="services-section section-padding" id="section_3">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-12 col-12">
+                                    <h2 class="mb-5">Servislar</h2>
+                                </div>
+                                {% for service in services %}
+                                <div class="col-lg-6 col-12 mb-4">
+                                    <div class="services-thumb">
+                                        <img src="{% static '/images/services/woman-cutting-hair-man-salon.jpg' %}" class="services-image img-fluid" alt="">
+
+                                        <div class="services-info d-flex align-items-end">
+                                            <h4 class="mb-0">Soch olish</h4>
+
+                                            <strong class="services-thumb-price">{{ service.price_soch_olish }} so'm</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12 mb-4">
+                                    <div class="services-thumb">
+                                        <img src="{% static '/images/services/hairdresser-grooming-their-client.jpg' %}" class="services-image img-fluid" alt="">
+
+                                        <div class="services-info d-flex align-items-end">
+                                            <h4 class="mb-0">Bosh yuvish</h4>
+
+                                            <strong class="services-thumb-price">{{ service.price_bosh_yuvish }} so'm</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12 mb-4 mb-lg-0">
+                                    <div class="services-thumb">
+                                        <img src="{% static '/images/services/hairdresser-grooming-client.jpg' %}" class="services-image img-fluid" alt="">
+
+                                        <div class="services-info d-flex align-items-end">
+                                            <h4 class="mb-0">Soqol olish</h4>
+
+                                            <strong class="services-thumb-price">{{ service.price_soqol_olish }} so'm</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <div class="services-thumb">
+                                        <img src="{% static '/images/services/boy-getting-haircut-salon-front-view.jpg' %}" class="services-image img-fluid" alt="">
+
+                                        <div class="services-info d-flex align-items-end">
+                                            <h4 class="mb-0">Bolalar uchun</h4>
+
+                                            <strong class="services-thumb-price">{{ service.price_for_kids }} so'm</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="booking-section section-padding" id="booking-section">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-10 col-12 mx-auto">
+                                <form action="#" method="post" class="custom-form booking-form" id="bb-booking-form" role="form">
+                                    <div class="text-center mb-5">
+                                        <h2 class="mb-1">Joy bron qilish</h2>
+
+                                        <p>Iltimos,aniq maqsad bilan vaqt bron qiling!</p>
+                                    </div>
+
+                                    <div class="booking-form-body">
+                                        <div class="row">
+
+                                            <div class="col-lg-6 col-12">
+                                                <input type="text" name="bb-name" id="bb-name" class="form-control" placeholder="Ismingiz" required>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12">
+                                                <input type="tel" class="form-control" name="bb-phone" placeholder="Telefon raqamingiz" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="">
+                                            </div>
+                                        
+                                            <div class="col-lg-6 col-12">
+                                                <input class="form-control" type="time" name="bb-time" value="18:30" />
+                                            </div>
+
+                                            <div class="col-lg-6 col-12">
+                                                <select class="form-select form-control" name="bb-branch" id="bb-branch" aria-label="Default select example">
+                                                    <option selected="">Sartarosh tanlang</option>
+                                                    {% for barbers in barbers_category %}
+                                                    <option value="{{ barbers.name }}">{{ barbers.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+
+                                            </div>
+                                            <div class="col-lg-6 col-12">
+                                                <input type="date" name="bb-date" id="bb-date" class="form-control" placeholder="Kun" required>
+                                            </div>
+
+                                            <div class="col-lg-6 col-12">
+                                                <input type="number" name="bb-number" id="bb-number" class="form-control" placeholder="Qo'shimcha odamlar soni" required>
+                                            </div>
+                                        </div>
+
+                                        <textarea name="bb-message" rows="3" class="form-control" id="bb-message" placeholder="Fikr-mulohazangiz(Ixtiyoriy)"></textarea>
+
+                                        <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                            <button type="submit" class="form-control">Yuborish</button>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </section>
+
+
+                    <section class="price-list-section section-padding" id="section_4">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-8 col-12">
+                                    <div class="price-list-thumb-wrap">
+                                        <div class="mb-4">
+                                            <h2 class="mb-2">Narxlar ro'yxati</h2>
+
+                                            <strong>Boshlang'ich narx 20.000 so'm</strong>
+                                        </div>
+                                        {% for price in prices %}
+                                        <div class="price-list-thumb">
+                                            <h6 class="d-flex">
+                                                {{ price.name }}
+                                                <span class="price-list-thumb-divider"></span>
+
+                                                <strong>{{ price.price }} so'm</strong>
+                                            </h6>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-12 custom-block-bg-overlay-wrap mt-5 mb-5 mb-lg-0 mt-lg-0 pt-3 pt-lg-0">
+                                    <img src="{% static 'images/vintage-chair-barbershop.jpg' %}" class="custom-block-bg-overlay-image img-fluid" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+
+                <section class="contact-section" id="section_5">
+                    <div class="section-padding section-bg">
+                        <div class="container">
+                            <div class="row">   
+
+                                <div class="col-lg-8 col-12 mx-auto">
+                                    <h2 class="text-center">Biz haqimizda</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-padding">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-6 col-12">
+                                    <h5 class="mb-3"><strong>Kontakt</strong> va ma'lumotlar</h5>
+
+                                    <p class="text-white d-flex mb-1">
+                                        <a href="tel: 120-240-3600" class="site-footer-link">
+                                            +998 (99) 
+                                            000-17-04
+                                        </a>
+                                    </p>
+
+                                    <p class="text-white d-flex">
+                                        <a href="mailto:zeromax802@gmail.com" class="site-footer-link">
+                                            zeromax802@gmail.com
+                                        </a>
+                                    </p>                                    
+
+                                    <ul class="social-icon">
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-facebook">
+                                            </a>
+                                        </li>
+            
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-twitter">
+                                            </a>
+                                        </li>
+            
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-instagram">
+                                            </a>
+                                        </li>
+
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-youtube">
+                                            </a>
+                                        </li>
+
+                                        <li class="social-icon-item">
+                                            <a href="#" class="social-icon-link bi-whatsapp">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-lg-5 col-12 contact-block-wrap mt-5 mt-lg-0 pt-4 pt-lg-0 mx-auto">
+                                    <div class="contact-block">
+                                        <h6 class="mb-0">
+                                            <i class="custom-icon bi-shop me-3"></i>
+
+                                            <strong>Ish vaqtlari (Har kuni)</strong>
+
+                                            <span class="ms-auto">10:00 - 22:00</span>
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-12 mx-auto mt-5 pt-5">
+                                    <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d6002.498360820433!2d69.210071!3d41.21634!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDEyJzU4LjgiTiA2OcKwMTInMzYuMyJF!5e0!3m2!1sen!2s!4v1736174404124!5m2!1sen!2s" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="site-footer">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-12 col-12">
+                                <h4 class="site-footer-title mb-4">Bizning manzil!</h4>
+                            </div>
+
+                            {% for manzil in manzillar %}
+                            <div class="col-lg-4 col-md-6 col-11">
+                                <div class="site-footer-thumb">
+                                    <strong class="mb-1">{{ manzil.city }}</strong>
+
+                                    <p>{{ manzil.address }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="site-footer-bottom">
+                        <div class="container">
+                            <div class="row align-items-center">
+
+                                <div class="col-lg-8 col-12 mt-4">
+                                    <p class="copyright-text mb-0">Mualliflik huquqi © 2024. Veb sayt
+                                    <a href="https://github.com/zero1max" rel="nofollow" target="_blank">zero1max</a>
+                                tomonidan yaratildi.</p>
+                                </div>
+
+                                <div class="col-lg-2 col-md-3 col-3 mt-lg-4 ms-auto">
+                                    <a href="#section_1" class="back-top-icon smoothscroll" title="Back Top">
+                                        <i class="bi-arrow-up-circle"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+</html>
