@@ -1,0 +1,9 @@
+<form action="{% url 'booking' %}" method="post" id="bb-booking-form">
+    {% csrf_token %}
+    <input type="text" name="bb-name" placeholder="Ismingiz" required>
+    <input type="tel" name="bb-phone" placeholder="Telefon raqamingiz" required>
+    <input type="time" name="bb-time" value="18:30" required>
+    <input type="date" name="bb-date" required>
+    <textarea name="bb-message" placeholder="Fikr-mulohazangiz"></textarea>
+    <button type="submit">Yuborish</button>
+</form>
