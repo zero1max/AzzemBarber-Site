@@ -3,8 +3,8 @@ from urllib.parse import quote
 from datetime import datetime
 
 def send_msg(*args):
-    token = "7094074130:AAGTo6lf2jitG5crHhO6pxsUV2KBn1FbIc0" 
-    user_id = "5471452269"  
+    token = "BOT_TOKEN" 
+    user_id = "YOUR_USER_ID"  
 
     message = (
     f"<b>📅 Sana:</b> {datetime.now().strftime('%d/%m/%Y')}\n"
