@@ -18,36 +18,23 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&display=swap" rel="stylesheet">
 
-        <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-        <link href="{% static '/css/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
 
-        <link href="{% static '/css/templatemo-barber-shop.css' %}" rel="stylesheet">
-<!--
-
-TemplateMo 585 Barber Shop
-
-https://templatemo.com/tm-585-barber-shop
-
--->
+        <link href="{% static 'css/templatemo-barber-shop.css' %}" rel="stylesheet">
     </head>
-    
     <body>
-
         <div class="container-fluid">
             <div class="row">
-
                 <button class="navbar-toggler d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block sidebar collapse p-0">
-
                     <div class="position-sticky sidebar-sticky d-flex flex-column justify-content-center align-items-center">
                         <a class="navbar-brand" href="index.html">
-                            <img src="{% static '/images/templatemo-barber-logo.png' %}" class="logo-image img-fluid" align="">
+                            <img src="{% static 'images/templatemo-barber-logo.png' %}" class="logo-image img-fluid" align="">
                         </a>
-
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link click-scroll" href="#section_1">Bosh sahifa</a>
@@ -71,7 +58,6 @@ https://templatemo.com/tm-585-barber-shop
                         </ul>
                     </div>
                 </nav>
-                
                 <div class="col-md-8 ms-sm-auto col-lg-9 p-0">
                     <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
 
@@ -90,15 +76,13 @@ https://templatemo.com/tm-585-barber-shop
                             </div>
 
                             <div class="custom-block d-lg-flex flex-column justify-content-center align-items-center">
-                                <img src="{% static '/images/vintage-chair-barbershop.jpg' %}" class="custom-block-image img-fluid" alt="">
+                                <img src="{% static 'images/vintage-chair-barbershop.jpg' %}" class="custom-block-image img-fluid" alt="">
 
                                 <h4><strong class="text-white">Tezroq! Hoziroq joy band qiling!</strong></h4>
 
                                 <a href="#booking-section" class="smoothscroll btn custom-btn custom-btn-italic mt-3">Joy band qilish</a>
                             </div>
                     </section>
-
-
                     <section class="about-section section-padding" id="section_2">
                         <div class="container">
                             <div class="row">
@@ -121,35 +105,21 @@ https://templatemo.com/tm-585-barber-shop
 
                                                 <ul class="social-icon ms-auto">
                                                     <li class="social-icon-item">
-                                                        <a href="#" class="social-icon-link bi-facebook">
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="social-icon-item">
                                                         <a href="#" class="social-icon-link bi-instagram">
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="social-icon-item">
-                                                        <a href="#" class="social-icon-link bi-whatsapp">
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
-                                        {% endfor %}
+                                        {% endfor %}    
                                 </div>
 
                             </div>
                         </div>
                     </section>
-
                     <section class="featured-section section-padding">
                         <div class="section-overlay"></div>
-
                         <div class="container">
                             <div class="row">
-
                                 <div class="col-lg-10 col-12 mx-auto">
                                     <h2 class="mb-3">40% chegirma oling</h2>
 
@@ -161,8 +131,6 @@ https://templatemo.com/tm-585-barber-shop
                             </div>
                         </div>
                     </section>
-
-
                     <section class="services-section section-padding" id="section_3">
                         <div class="container">
                             <div class="row">
@@ -222,64 +190,61 @@ https://templatemo.com/tm-585-barber-shop
                             </div>
                         </div>
                     </section>
-
                     <section class="booking-section section-padding" id="booking-section">
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-lg-10 col-12 mx-auto">
-                                <form action="#" method="post" class="custom-form booking-form" id="bb-booking-form" role="form">
-                                    <div class="text-center mb-5">
-                                        <h2 class="mb-1">Joy bron qilish</h2>
-
-                                        <p>Iltimos,aniq maqsad bilan vaqt bron qiling!</p>
-                                    </div>
-
-                                    <div class="booking-form-body">
-                                        <div class="row">
-
-                                            <div class="col-lg-6 col-12">
-                                                <input type="text" name="bb-name" id="bb-name" class="form-control" placeholder="Ismingiz" required>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-10 col-12 mx-auto">
+                                    <form action="{% url 'booking' %}" method="post" class="custom-form booking-form" id="bb-booking-form" role="form">
+                                        {% csrf_token %}
+                                        <div class="text-center mb-5">
+                                            <h2 class="mb-1">Joy bron qilish</h2>
+                                            <p>Iltimos, aniq maqsad bilan vaqt bron qiling!</p>
+                                        </div>
+                    
+                                        <div class="booking-form-body">
+                                            <div class="row">
+                    
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="text" name="bb-name" id="bb-name" class="form-control" placeholder="Ismingiz" required>
+                                                </div>
+                    
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="tel" class="form-control" name="bb-phone" placeholder="+998901234567"required>
+                                                </div>
+                    
+                                                <div class="col-lg-6 col-12">
+                                                    <input class="form-control" type="time" name="bb-time" value="18:30" required>
+                                                </div>
+                    
+                                                <div class="col-lg-6 col-12">
+                                                    <select class="form-select form-control" name="bb-branch" id="bb-branch" required>
+                                                        <option value="" disabled selected>Sartarosh tanlang</option>
+                                                        {% for barber in barbers_category %}
+                                                        <option value="{{ barber.name }}">{{ barber.name }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                    
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="date" name="bb-date" id="bb-date" class="form-control" required>
+                                                </div>
+                    
+                                                <div class="col-lg-6 col-12">
+                                                    <input type="number" name="bb-number" id="bb-number" class="form-control" placeholder="Qo'shimcha odamlar soni" required min="0" max="10">
+                                                </div>
                                             </div>
-
-                                            <div class="col-lg-6 col-12">
-                                                <input type="tel" class="form-control" name="bb-phone" placeholder="Telefon raqamingiz" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="">
-                                            </div>
-                                        
-                                            <div class="col-lg-6 col-12">
-                                                <input class="form-control" type="time" name="bb-time" value="18:30" />
-                                            </div>
-
-                                            <div class="col-lg-6 col-12">
-                                                <select class="form-select form-control" name="bb-branch" id="bb-branch" aria-label="Default select example">
-                                                    <option selected="">Sartarosh tanlang</option>
-                                                    {% for barbers in barbers_category %}
-                                                    <option value="{{ barbers.name }}">{{ barbers.name }}</option>
-                                                    {% endfor %}
-                                                </select>
-
-                                            </div>
-                                            <div class="col-lg-6 col-12">
-                                                <input type="date" name="bb-date" id="bb-date" class="form-control" placeholder="Kun" required>
-                                            </div>
-
-                                            <div class="col-lg-6 col-12">
-                                                <input type="number" name="bb-number" id="bb-number" class="form-control" placeholder="Qo'shimcha odamlar soni" required>
+                    
+                                            <textarea name="bb-message" rows="3" class="form-control mt-3" id="bb-message" placeholder="Fikr-mulohazangiz (ixtiyoriy)"></textarea>
+                    
+                                            <div class="col-lg-4 col-md-10 col-8 mx-auto mt-4">
+                                                <button type="submit" class="btn btn-primary form-control">Yuborish</button>
                                             </div>
                                         </div>
-
-                                        <textarea name="bb-message" rows="3" class="form-control" id="bb-message" placeholder="Fikr-mulohazangiz(Ixtiyoriy)"></textarea>
-
-                                        <div class="col-lg-4 col-md-10 col-8 mx-auto">
-                                            <button type="submit" class="form-control">Yuborish</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-
+                    </section>                    
                     <section class="price-list-section section-padding" id="section_4">
                         <div class="container">
                             <div class="row">
@@ -311,8 +276,6 @@ https://templatemo.com/tm-585-barber-shop
                             </div>
                         </div>
                     </section>
-
-
                 <section class="contact-section" id="section_5">
                     <div class="section-padding section-bg">
                         <div class="container">
