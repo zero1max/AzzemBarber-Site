@@ -18,6 +18,7 @@ def home(request):
         }
     return render(request, 'index.html', context=context)
 
+
 def process_booking(request):
     if request.method == 'POST':
         # Foydalanuvchi tomonidan yuborilgan ma'lumotlarni olish
@@ -25,10 +26,12 @@ def process_booking(request):
         phone = request.POST.get('bb-phone')
         booking_time = request.POST.get('bb-time')
         booking_date = request.POST.get('bb-date')
+        booking_barber = request.POST.get('bb-branch')
+        booking_other_people = request.POST.get('bb-number')
         message = request.POST.get('bb-message', 'Fikr-mulohaza mavjud emas')  # ixtiyoriy
 
         # Telegramga yuboriladigan xabarni formatlash
-        telegram_message = (f"📝 Yangi bron ma'lumotlari:\n\n👤 Ismi: {name}\n📞 Telefon: {phone}\n📅 Kun: {booking_date}\n⏰ Vaqt: {booking_time}\n💬 Fikr-mulohaza: {message}\n"
+        telegram_message = (f"📝 Yangi bron ma'lumotlari:\n\n👤Buyurtmachi ismi: {name}\n👨🏻‍💼Qaysi sartarosh uchun: {booking_barber}\n📞 Telefon: {phone}\n📅 Kun: {booking_date}\n⏰ Vaqt: {booking_time}\n👥Qo'shimcha insonlar soni: {booking_other_people}\n💬 Fikr-mulohaza: {message}\n"
         )
 
         # Telegram botga yuborish
@@ -38,4 +41,4 @@ def process_booking(request):
         return render(request, 'booking_success.html', {'name': name})
 
     # Agar GET so'rov bo'lsa, bronlash formasini qaytaramiz
-    return render(request, 'booking_form.html')
+    return render(request, 'index.html')
