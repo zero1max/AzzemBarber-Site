@@ -29,11 +29,9 @@ def process_booking(request):
         booking_other_people = request.POST.get('bb-number')
         message = request.POST.get('bb-message', 'Fikr-mulohaza mavjud emas')  # ixtiyoriy
 
-        telegram_message = (f"📝 Yangi bron ma'lumotlari:\n\n👤Buyurtmachi ismi: {name}\n👨🏻‍💼Qaysi sartarosh uchun: {booking_barber}\n📞 Telefon: {phone}\n📅 Kun: {booking_date}\n⏰ Vaqt: {booking_time}\n👥Qo'shimcha insonlar soni: {booking_other_people}\n💬 Fikr-mulohaza: {message}\n"
-        )
+        telegram_message = (f"📝 Yangi bron ma'lumotlari:\n\n👤Buyurtmachi ismi: {name}\n👨🏻‍💼Qaysi sartarosh uchun: {booking_barber}\n📞 Telefon: {phone}\n📅 Kun: {booking_date}\n⏰ Vaqt: {booking_time}\n👥Qo'shimcha insonlar soni: {booking_other_people}\n💬 Fikr-mulohaza: {message}\n")
 
         send_msg(telegram_message) 
 
         return redirect('home')
-
     return redirect('home')
