@@ -37,8 +37,8 @@ def process_booking(request):
         # Telegram botga yuborish
         send_msg(telegram_message)  # send_msg funksiyasini chaqiramiz
 
-        # Foydalanuvchiga javob
-        return render(request, 'index.html')
+        # Foydalanuvchini bosh sahifaga yo'naltirish
+        return redirect('home')
 
     # Agar GET so'rov bo'lsa, bronlash formasini qaytaramiz
-    return render(request, 'index.html')
+    return redirect('home')
